@@ -1,0 +1,42 @@
+package test;
+
+public class Member {
+
+	private int mID;
+	private String mName;
+	
+	public Member(int mID, String mName) {
+		super();
+		this.mID = mID;
+		this.mName = mName;
+	}
+	@Override
+	public int hashCode() {
+		return this.mID;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		// p427과 같이 instance를 비교하면 완벽하지만, 간단히 mID가 같은지만 비교해도 우리의 목적은 수행된다.
+		Member m = (Member)obj;
+		if( m.mID == this.mID ) return true;
+		
+		return false;
+	}
+	public int getmID() {
+		return mID;
+	}
+	public void setmID(int mID) {
+		this.mID = mID;
+	}
+	public String getmName() {
+		return mName;
+	}
+	public void setmName(String mName) {
+		this.mName = mName;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return mID + " : " + mName;
+	}
+}
