@@ -1,0 +1,17 @@
+package test;
+
+public class Test {
+
+	public static void main(String[] args) {
+		MemberHashSet mhs = new MemberHashSet();
+		mhs.addMember(new Member(1001, "aaa"));
+		mhs.addMember(new Member(1002, "bbb"));
+		mhs.addMember(new Member(1003, "ccc"));
+        mhs.addMember(new Member(1002, "ddd")); // 동일한 mID를 가진 요소 추가.
+		System.out.println( mhs );
+        System.out.println( mhs.removeMember(1003) ); // 해당 mID를 가진 Member가 있는 경우 true
+		System.out.println( mhs );
+		System.out.println( mhs.removeMember(1005) ); 	//해당 mID를 가진 Member가 없는 경우 false
+		System.out.println( mhs );
+	}
+}
