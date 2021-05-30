@@ -1,0 +1,36 @@
+package test;
+
+import java.util.HashSet;
+
+public class MemberHashSet {
+	
+	HashSet<Member> hs;
+
+	public MemberHashSet() {
+		hs = new HashSet<>();
+	}
+
+	public void addMember(Member m) {
+		hs.remove(m);	// mID만 같으면 equals()에서 같은 멤버로 취급하도록 해 두어 해당 Member를 삭제한다.	
+		hs.add(m);		// 매개로 받은 m은 추가하려는 새로운 Member의 값을 가진다.
+	} 
+	
+	public boolean removeMember(int mID) {
+		for( Member m : hs ) {
+			if( m.getmID() == mID ){
+				hs.remove(m);
+				return true;	// 삭제 후 바로 빠져 나와서 더이상 iterator를 사용하지 않기 때문에 Exception이 발생하지 않는다.
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();	// 그냥 String으로 해도 되지만, 길이 변화가 많은 경우 StringBuilder로 하면 속도가 빠르다.
+		for( Member m : hs ) { 
+			sb.append( m + "\n" );
+		}
+		return sb.toString();
+	}
+}
